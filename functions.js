@@ -30,6 +30,27 @@ function timer() {
     }
 }
 
+//写入cookie函数
+function setCookie(name, value) {
+    var Days = 30;
+    var exp = new Date();
+    exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+    document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+}
+
+//获取cookie
+function getCookie(name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg))
+        return unescape(arr[2]);
+    else
+        return null;
+}
+
+function choicesLanguage(language) {
+    jsPsych.language = parseInt(language.button_pressed) + 1;
+}
+
 function addRespFromButton(data) {
     // compute variables from button-plugin response (for simple item)
     data.response = parseInt(data.button_pressed) + 1 // raw: 0, 1, 2, ...
@@ -80,7 +101,7 @@ function MEAN(scale_name, rev = [0], likert = [1, 7], var_i = 'i', var_response 
 
 /* JS Functions from the R package 'jspsychr' */
 
-save_locally = function() {
+save_locally = function () {
     var data = jsPsych.data.get().csv()
     var xhr = new XMLHttpRequest()
     xhr.open('POST', 'submit')

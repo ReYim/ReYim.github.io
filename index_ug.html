@@ -42,30 +42,12 @@
 </head>
 
 <body>
-    <div style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
-        <div>
-            <h1>请选择语言</h1>
-        </div>
-        <div>
-            <button id="cn" style="font-size: 24px;height: 50px;width: 100px;">中文</button>
-            <button id="ug" style="margin-left: 20px;font-size: 24px;height: 50px;width: 100px">ئۇيغۇرچە </button>
-        </div>
 
-        <script>
-            document.getElementById("cn").addEventListener("click", languageCN);
-            document.getElementById("ug").addEventListener("click", languageUG);
-
-            // 中文
-            function languageUG() {
-                location.href = 'index_ug.html';
-            }
-
-            // 维文
-            function languageCN() {
-                location.href = 'index_cn.html';
-            }
-        </script>
-    </div>
+    <button id="myBtn">中文</button>
+    <button id="myBtn">维文</button>
+    <!-- JavaScript Files of Your Experiment -->
+    <script src="functions.js"></script>
+    <script src="experiment_ug.js"></script>
 </body>
 
 </html>
